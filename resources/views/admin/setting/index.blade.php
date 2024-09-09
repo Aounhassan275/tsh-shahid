@@ -11,12 +11,13 @@
         <div class="card">
             <div class="card-header">
                 <h5 class="card-title">Add Setting</h5>
-                <a href="{{url('admin/add_autopool_for_package_1')}}" class="btn btn-primary">Autopool Package 1</a>
-                <a href="{{url('admin/add_autopool_for_package_2')}}" class="btn btn-success">Autopool Package 2</a>
-                <a href="{{url('admin/add_reward')}}" class="btn btn-warning">Add User Main Tree Reward On Package Level Reward</a>
-                <a href="{{url('admin/make_leader_on_level_6')}}" class="btn btn-info">Add User Make Leader on Level 6</a>
-                <a href="{{url('admin/add_reward_for_autopool_package_1')}}" class="btn btn-danger">Add Reward For Autopool Package 1</a>
-                <a href="{{url('admin/add_reward_for_autopool_package_2')}}" class="btn btn-primary">Add Reward For Autopool Package 2</a>
+                <a href="{{url('admin/add_autopool_for_package_1')}}" class="btn btn-primary mt-2 ml-2">Autopool Package 1</a>
+                <a href="{{url('admin/add_autopool_for_package_2')}}" class="btn btn-success mt-2 ml-2">Autopool Package 2</a>
+                <a href="{{url('admin/add_reward')}}" class="btn btn-warning mt-2 ml-2">Add User Main Tree Reward On Package Level Reward</a>
+                <a href="{{url('admin/make_leader_on_level_6')}}" class="btn btn-info  mt-2 ml-2">Add User Make Leader on Level 6</a>
+                <a href="{{url('admin/add_reward_for_autopool_package_1')}}" class="btn btn-danger  mt-2 ml-2">Add Reward For Autopool Package 1</a>
+                <a href="{{url('admin/add_reward_for_autopool_package_2')}}" class="btn btn-primary  mt-2 ml-2">Add Reward For Autopool Package 2</a>
+                <a href="{{url('admin/add_reward_for_in_stock_level')}}" class="btn btn-success  mt-2 ml-2">Add Reward For In-Stock Level</a>
             </div>
             <div class="card-body">
                 <form method="POST" action="{{route('admin.setting.store')}}" enctype="multipart/form-data" >

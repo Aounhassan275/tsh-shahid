@@ -65,6 +65,7 @@
 						<ul id="layouts" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
 							<li class="sidebar-item"><a class="sidebar-link" href="{{route('admin.package.create')}}">Create Package</a></li>
 							<li class="sidebar-item"><a class="sidebar-link" href="{{route('admin.package.index')}}">View Package</a></li>
+							<li class="sidebar-item"><a class="sidebar-link" href="{{route('admin.in_stock_level.index')}}">Manage In-Stock Level</a></li>
 						</ul>
 					</li>
 					<li class="sidebar-item {{Request::is('admin.messages.index')?'active':''}}">

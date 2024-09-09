@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\CompanyAccount;
 use App\Models\Earning;
+use App\Models\InStockLevel;
 use App\Models\Setting;
 use App\Models\Transcation;
 use Exception;
@@ -55,10 +57,11 @@ class TranscationController extends Controller
             ]);
             DB::beginTransaction();
             if(Auth::user()->balance < $request->amount){
-                toastr()->error('Transaction Id already exists');
+                toastr()->error('Your balance is less than amount you want to transfer.');
                 return redirect()->back();
             }
             $shoppingReward = $instockReward =  0;
+            $user =Auth::user();
             if($request->wallet == 'Shopping Wallet'){
                 $shoppingReward = $request->amount / 100 * Setting::shoppingReward();
                 Auth::user()->update([
@@ -67,17 +70,33 @@ class TranscationController extends Controller
                     'balance' => Auth::user()->balance - $request->amount,
                 ]);
             }else if($request->wallet == 'In Stock Wallet'){
-                $instockReward = $request->amount / 100 * Setting::instockReward();
                 Auth::user()->update([
                     'instock_wallet' => Auth::user()->instock_wallet + $request->amount,
                     'balance' => Auth::user()->balance - $request->amount,
                 ]);
-                Earning::create([
-                    'due_to' => Auth::user()->id, 
-                    'user_id' => Auth::user()->id, 
-                    'price' => $instockReward, 
-                    'type' => 'monthly_instock_reward', 
-                ]);
+                $levels = InStockLevel::all();		
+                $parents = $user->getParents();
+                $flash_income= CompanyAccount::flash_income();
+                foreach($levels as $index => $level_reward)
+                {
+                    if($parents[$index])
+                    {
+                        $instockTeamReward = $request->amount / 100 * $level_reward->amount;
+
+                        $parents[$index]->update([
+                            'balance' => $parents[$index]->balance + $instockTeamReward, 
+                        ]);
+                        Earning::create([
+                            'user_id' => $parents[$index]->id, 
+                            'due_to' => $user->id, 
+                            'price' => $instockTeamReward, 
+                            'type' => 'monthly_team_profit', 
+                        ]);
+                        $flash_income->update([
+                            'balance' => $flash_income->balance -= $instockTeamReward,
+                        ]);
+                    }
+                }   
             }
             Transcation::create([
                 'user_id' => Auth::user()->id

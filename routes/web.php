@@ -29,6 +29,7 @@ Route::group(['prefix' => 'admin', 'as'=>'admin.','namespace' => 'Admin'], funct
     Route::get('add_reward_for_autopool_package_2', 'AuthController@add_reward_for_autopool_package_2');
     Route::get('clear_auto_pool_tree', 'AuthController@clearAutoPoolTree');
     Route::get('make_leader_on_level_6', 'AuthController@makeLeaderOnLevel6');
+    Route::get('add_reward_for_in_stock_level', 'CronjobController@addRewardForInStockLevel');
      /******************MESSAGE ROUTES****************/
      Route::resource('message', 'MessageController');
     Route::group(['middleware' => 'auth:admin'], function () { 
@@ -125,6 +126,9 @@ Route::group(['prefix' => 'admin', 'as'=>'admin.','namespace' => 'Admin'], funct
         /******************CHATS ROUTES****************/
         Route::resource('chat', 'ChatController');
         Route::resource('chatmessage', 'ChatMessageController');
+        // Instock Level
+        Route::resource('in_stock_level', 'InStockLevelController');
+
 });
 });
 /******************USER PANELS ROUTES****************/
