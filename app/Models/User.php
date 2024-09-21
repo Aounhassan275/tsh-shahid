@@ -84,6 +84,10 @@ class User extends Authenticatable
         return (new static)::where('status','pending')->get();
     }
     
+    public function coupons()
+    {
+        return $this->hasMany(Coupon::class);
+    }
     public function withdraws()
     {
         return $this->hasMany(Withdraw::class);

@@ -40,7 +40,7 @@
 <!-- Right Icon menu Sidebar -->
 <div class="navbar-right">
     <ul class="navbar-nav">
-        @if (Auth::user()->checkstatus() =='old')
+        {{-- @if (Auth::user()->checkstatus() =='old') --}}
         <li class="dropdown">
             <a href="javascript:void(0);" class="dropdown-toggle" title="App" data-toggle="dropdown" role="button"><i class="zmdi zmdi-apps"></i></a>
             <ul class="dropdown-menu slideUp2">
@@ -63,7 +63,7 @@
                 </li>
             </ul>
         </li>
-        @endif
+        {{-- @endif --}}
         <li><a href="{{route('user.user.index')}}" class="js-right-sidebar" title="Setting"><i class="zmdi zmdi-settings zmdi-hc-spin"></i></a></li>   
         <li><a href="{{route('user.logout')}}" class="mega-menu" title="Sign Out"><i class="zmdi zmdi-power"></i></a></li>
     </ul>
@@ -94,8 +94,6 @@
             <li><a href="{{route('user.dashboard.index')}}"><i class="zmdi zmdi-home"></i><span>Dashboard</span></a></li>
             @if (Auth::user()->checkstatus() =='old')
             <li><a href="{{route('user.package.index')}}"><i class="zmdi zmdi-account"></i><span>Packages</span></a></li>
-            <li><a href="{{route('user.simple-deposit.index')}}"><i class="zmdi zmdi-account"></i><span>Deposit</span></a></li>
-            <li><a href="{{route('user.balance_transfer.index')}}"><i class="zmdi zmdi-account"></i><span>Balance Transfer</span></a></li>
             <li><a href="{{route('user.refer.index')}}"><i class="zmdi zmdi-account"></i><span>Refferral</span></a></li>
             <li ><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-apps"></i><span>Withdraw</span></a>
                 <ul class="ml-menu">
@@ -115,15 +113,21 @@
                     <li><a href="{{route('user.autopool.package_2')}}">Package 2</a></li>
                 </ul>
             </li>
-            <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-assignment"></i><span>Ecommerce Section</span></a>
-                <ul class="ml-menu">
-                    <li><a href="{{route('user.product.index')}}">Products</a></li>
-                    <li><a href="{{route('user.order.index')}}">Orders</a></li>
-                </ul>
-            </li>
             @elseif (Auth::user()->checkstatus() =='fresh' && Auth::user()->status=='pending')
                 <li><a href="{{route('user.package.index')}}"><i class="zmdi zmdi-account"></i><span>Packages</span></a></li>
             @endif 
+            <li><a href="{{route('user.simple-deposit.index')}}"><i class="zmdi zmdi-account"></i><span>Deposit</span></a></li>
+            <li><a href="{{route('user.balance_transfer.index')}}"><i class="zmdi zmdi-account"></i><span>Balance Transfer</span></a></li>
+            
+            <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-assignment"></i><span>Ecommerce Section</span></a>
+                <ul class="ml-menu">
+                    @if (Auth::user()->checkstatus() =='old')
+                    <li><a href="{{route('user.product.index')}}">Products</a></li>
+                    @endif
+                    <li><a href="{{route('user.order.index')}}">Orders</a></li>
+                    <li><a href="{{route('user.coupon.index')}}">Coupon</a></li>
+                </ul>
+            </li>
             <li><a href="{{route('user.chat.index')}}"><i class="zmdi zmdi-email"></i><span>Chat With Admin</span></a></li>
             <li><a href="{{route('user.logout')}}"><i class="zmdi zmdi-power"></i><span>Logout</span></a></li>
         </ul>

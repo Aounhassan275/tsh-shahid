@@ -9,10 +9,10 @@
 	<div class="ln-title">Latest News</div>
 	<div class="news-ticker">
 		<div class="news-ticker-contant">
-			<div class="nt-item"><span class="new">new</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </div>
-			<div class="nt-item"><span class="strategy">strategy</span>Isum dolor sit amet, consectetur adipiscing elit. </div>
-			<div class="nt-item"><span class="racing">racing</span>Isum dolor sit amet, consectetur adipiscing elit. </div>
-		</div>
+      @foreach (App\Models\FrontTicker::all() as $key => $ticker)
+      <div class="nt-item"><span class="new">{{$ticker->title}}</span>{{$ticker->message}} </div>
+      @endforeach
+    </div>
 	</div>
 </div>
 <!-- Latest news section end -->

@@ -16,8 +16,6 @@ Dashboard
         </div>
     </div>
 </div>
-@if (Auth::user()->checkstatus() =='old')
-
 <div class="row clearfix">
     <div class="col-lg-4 col-md-6 col-sm-12">
         <div class="card widget_2 big_icon traffic">
@@ -124,6 +122,8 @@ Dashboard
         </div>
     </div>
 </div>
+@if (Auth::user()->checkstatus() =='old')
+
 <div class="row clearfix">
     <div class="col-md-12 col-lg-3">
         <div class="card">

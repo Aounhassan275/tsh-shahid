@@ -23,9 +23,9 @@
 	<div class="ln-title">Latest News</div>
 	<div class="news-ticker">
 		<div class="news-ticker-contant">
-			<div class="nt-item"><span class="new">new</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </div>
-			<div class="nt-item"><span class="strategy">strategy</span>Isum dolor sit amet, consectetur adipiscing elit. </div>
-			<div class="nt-item"><span class="racing">racing</span>Isum dolor sit amet, consectetur adipiscing elit. </div>
+			@foreach (App\Models\FrontTicker::all() as $key => $ticker)
+			<div class="nt-item"><span class="new">{{$ticker->title}}</span>{{$ticker->message}} </div>
+			@endforeach
 		</div>
 	</div>
 </div>
@@ -62,10 +62,12 @@
 			<div class="col-lg-4 col-md-7 sidebar pt-5 pt-lg-0">
 				<!-- widget -->
 				<div class="widget-item">
-					<h3>PKR {{$product->price}}</h3>
+					<h3>PKR @if($product->fake_price > 0)<del>{{$product->fake_price}} /</del> @endif{{$product->price}}</h3>
 					<a href="{{route('user.product.order',$product->id)}}" class="btn btn-primary btn-shadow d-block w-100">
 						<i class="ci-cart fs-lg me-2"></i>Add to Cart
 					</a>
+					<p><strong>Product Description :</strong></p>
+
 					<p>{{$product->description}}</p>
 					<p><strong>Share :</strong></p>
 					
@@ -76,6 +78,13 @@
 					</div>
 				</div>
 			</div>
+		</div>
+		<div class="row">
+			@foreach($product->images as $productImage)
+			<div class="col-lg-3 md-2">
+				<img src="{{asset($productImage->image)}}" alt="">
+			</div>
+			@endforeach
 		</div>
 	</div>
 </section>

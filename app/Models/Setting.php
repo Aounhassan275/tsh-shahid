@@ -42,4 +42,7 @@ class Setting extends Model
     public static function template(){
         return (new static)::where('name','Template')->first() ? (new static)::where('name','Template')->first()->value : 'tsh-template';
     }
+    public static function couponDicount(){
+        return (new static)::where('name','Coupon Discount')->first() ? (new static)::where('name','Coupon Discount')->first()->value : '2';
+    }
 }

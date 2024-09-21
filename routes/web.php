@@ -49,7 +49,8 @@ Route::group(['prefix' => 'admin', 'as'=>'admin.','namespace' => 'Admin'], funct
     /******************PACKAGE ROUTES****************/
     Route::resource('package', 'PackageController');    
     /******************TICKER ROUTES****************/
-    Route::resource('ticker', 'TickerController');   
+    Route::resource('ticker', 'TickerController');      
+    Route::resource('front_ticker', 'FrontTickerController');   
     /******************Slider ROUTES****************/
     Route::resource('slider', 'SliderController');    
     /******************Setting ROUTES****************/
@@ -193,6 +194,9 @@ Route::group(['prefix' => 'user', 'as'=>'user.','namespace' => 'User'], function
     Route::get('get_user_chats', 'ChatController@getUserChat')->name('chat.get_user_chats');
     Route::resource('chat', 'ChatController');
     Route::resource('chatmessage', 'ChatMessageController');
+        // Coupon
+        Route::resource('coupon', 'CouponController');   
+
 });
 });
 

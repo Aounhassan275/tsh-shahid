@@ -66,32 +66,9 @@
 							<li class="sidebar-item"><a class="sidebar-link" href="{{route('admin.package.create')}}">Create Package</a></li>
 							<li class="sidebar-item"><a class="sidebar-link" href="{{route('admin.package.index')}}">View Package</a></li>
 							<li class="sidebar-item"><a class="sidebar-link" href="{{route('admin.in_stock_level.index')}}">Manage In-Stock Level</a></li>
+							<li class="sidebar-item "><a class="sidebar-link" href="{{route('admin.deposit.index')}}">Deposit Request</a></li>
+							<li class="sidebar-item"><a class="sidebar-link" href="{{route('admin.deposit.show')}}">Deposit History</a></li>
 						</ul>
-					</li>
-					<li class="sidebar-item {{Request::is('admin.messages.index')?'active':''}}">
-						<a class="sidebar-link" href="{{route('admin.messages.index')}}">
-							<i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Message</span>
-						</a>
-					</li>	
-					<li class="sidebar-item {{Request::is('admin.email.index')?'active':''}}">
-						<a class="sidebar-link" href="{{route('admin.email.index')}}">
-							<i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Emails</span>
-						</a>
-					</li>	
-					<li class="sidebar-item {{Request::is('admin.ticker.index')?'active':''}}">
-						<a class="sidebar-link" href="{{route('admin.ticker.index')}}">
-							<i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Ticker Message</span>
-						</a>
-					</li>	
-					<li class="sidebar-item {{Request::is('admin.source.index')?'active':''}}">
-						<a class="sidebar-link" href="{{route('admin.source.index')}}">
-							<i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Source</span>
-						</a>
-					</li>
-					<li class="sidebar-item {{Request::is('admin.payment.index')?'active':''}}">
-						<a class="sidebar-link" href="{{route('admin.payment.index')}}">
-							<i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Payment Way</span>
-						</a>
 					</li>
 					<li class="sidebar-item">
 						<a href="{{url('#users')}}" data-toggle="collapse" class="sidebar-link collapsed">
@@ -103,15 +80,6 @@
 							<li class="sidebar-item"><a class="sidebar-link" href="{{route('admin.user.pendings')}}">Pending User</a></li>
 							<li class="sidebar-item"><a class="sidebar-link" href="{{route('admin.user.blocks')}}">Block User</a></li>
 
-						</ul>
-					</li>
-					<li class="sidebar-item">
-						<a href="{{url('#deposit')}}" data-toggle="collapse" class="sidebar-link collapsed">
-							<i class="align-middle" data-feather="monitor"></i> <span class="align-middle">Packages Deposit</span>
-						</a>
-						<ul id="deposit" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
-							<li class="sidebar-item "><a class="sidebar-link" href="{{route('admin.deposit.index')}}">Deposit Request</a></li>
-							<li class="sidebar-item"><a class="sidebar-link" href="{{route('admin.deposit.show')}}">Deposit History</a></li>
 						</ul>
 					</li>
 					<li class="sidebar-item">
@@ -135,10 +103,22 @@
 							<li class="sidebar-item"><a class="sidebar-link" href="{{route('admin.withdraw.complete')}}">Withdraw History</a></li>
 						</ul>
 					</li>
-					<li class="sidebar-item {{Request::is('admin.admin.index')?'active':''}}">
-						<a class="sidebar-link" href="{{route('admin.admin.index')}}">
-							<i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Add Employee</span>
+					<li class="sidebar-item">
+						<a href="{{url('#configuration')}}" data-toggle="collapse" class="sidebar-link collapsed">
+							<i class="align-middle" data-feather="monitor"></i> <span class="align-middle">Site Configuration</span>
 						</a>
+						<ul id="configuration" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
+							<li class="sidebar-item"><a class="sidebar-link" href="{{route('admin.admin.index')}}">Manage Employee</a></li>
+							<li class="sidebar-item"><a class="sidebar-link" href="{{route('admin.slider.index')}}">Slider</a></li>
+							<li class="sidebar-item"><a class="sidebar-link" href="{{route('admin.setting.index')}}">Setting</a></li>
+							<li class="sidebar-item"><a class="sidebar-link" href="{{route('admin.profile.index')}}">Profile</a></li>
+							<li class="sidebar-item"><a class="sidebar-link" href="{{route('admin.messages.index')}}">Messages</a></li>
+							<li class="sidebar-item"><a class="sidebar-link" href="{{route('admin.email.index')}}">Email</a></li>
+							<li class="sidebar-item"><a class="sidebar-link" href="{{route('admin.ticker.index')}}">Ticker</a></li>
+							<li class="sidebar-item"><a class="sidebar-link" href="{{route('admin.front_ticker.index')}}">Front Ticker</a></li>
+							<li class="sidebar-item"><a class="sidebar-link" href="{{route('admin.source.index')}}">Source</a></li>
+							<li class="sidebar-item"><a class="sidebar-link" href="{{route('admin.payment.index')}}">Payment Way</a></li>
+						</ul>
 					</li>
 					<li class="sidebar-item {{Request::is('admin/brand/*') || Request::is('admin/category')|| Request::is('admin/coupon') || Request::is('admin/product')  || Request::is('admin/order')  ?'active':''}}">
 						<a href="{{url('#social')}}" data-toggle="collapse" class="sidebar-link collapsed">
@@ -173,21 +153,6 @@
 						</ul>
 					</li>	
 					@endif
-					<li class="sidebar-item {{Request::is('admin/slider')?'active':''}}">
-						<a class="sidebar-link" href="{{route('admin.slider.index')}}">
-							<i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Slider</span>
-						</a>
-					</li>
-					<li class="sidebar-item {{Request::is('admin/setting')?'active':''}}">
-						<a class="sidebar-link" href="{{route('admin.setting.index')}}">
-							<i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Setting</span>
-						</a>
-					</li>
-					<li class="sidebar-item {{Request::is('admin.profile.index')?'active':''}}">
-						<a class="sidebar-link" href="{{route('admin.profile.index')}}">
-							<i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Profile</span>
-						</a>
-					</li>
 					<li class="sidebar-item {{Request::is('admin/chat*')?'active':''}}">
 						<a class="sidebar-link" href="{{route('admin.chat.index')}}">
 							<i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Chat</span>

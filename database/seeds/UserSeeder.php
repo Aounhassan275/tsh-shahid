@@ -53,6 +53,7 @@ class UserSeeder extends Seeder
             ['name' => 'Instagram','value' => 'Instagram.com'],
             ['name' => 'Shopping Reward','value' => '5'],
             ['name' => 'In Stock Reward','value' => '2'],
+            ['name' => 'Coupon Discount','value' => '2'],
         ]);
         DB::table('company_accounts')->insert([
             ['name' => 'Matching Income'],

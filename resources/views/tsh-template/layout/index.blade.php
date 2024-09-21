@@ -36,7 +36,7 @@
 		<div class="container">
 			<!-- logo -->
 			<a class="site-logo" href="{{url('')}}">
-				<img src="{{asset('tsh-template/img/logo.png')}}" alt="">
+				<img src="{{asset('tsh-template/tsh.png')}}" style="width:165px;" alt="">
 			</a>
 			<div class="user-panel">
 				<a href="{{url('user/login')}}">Login</a>  /  <a href="{{url('user/register',App\Models\User::find(1)->refferral_link)}}">Register</a>
