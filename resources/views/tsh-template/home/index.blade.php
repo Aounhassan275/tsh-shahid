@@ -39,18 +39,25 @@
 
 
 <!-- Feature section -->
-<section class="feature-section spad">
+
+<section class="review-section spad ">
   <div class="container">
+    <div class="section-title">
+      <div class="cata new">new</div>
+      <h2>OUR PRODUCTS</h2>
+    </div>
     <div class="row">
       @foreach(App\Models\Product::orderBy('created_at','desc')->get()->take(9) as $product)
-      <div class="col-lg-3 col-md-6 p-0">
-        <div class="feature-item set-bg" data-setbg="{{asset($product->images->first()->image)}}">
-          <span class="cata new">{{$product->category->name}}</span>
-          <div class="fi-content text-white">
-            <h5><a href="{{route('product.show',str_replace(' ', '_',$product->name))}}">{{$product->name}}</a></h5>
-            <p>PKR {{$product->price}} </p>
-            <a href="{{route('brand.show',str_replace(' ', '_',$product->brand->name))}}" class="fi-comment">{{$product->brand->name}}</a>
-          </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="review-item">
+        <div class="review-cover set-bg" data-setbg="{{asset($product->images->first()->image)}}">
+          <div class="score yellow">{{$product->discountPercentage()}}</div>
+        </div>
+        <div class="review-text">
+          <h5><a href="{{route('product.show',str_replace(' ', '_',$product->name))}}">{{$product->name}}</a></h5>
+          <h5>PKR {{$product->price}}</h5> 
+          <p><del>PKR {{$product->fake_price}}</del></p>
+        </div>
         </div>
       </div>
       @endforeach

@@ -122,6 +122,53 @@ Dashboard
         </div>
     </div>
 </div>
+<div class="row clearfix">
+    <div class="col-md-12 col-lg-3">
+        <div class="card">
+            <div class="body">
+                <h3 class="mt-0 mb-0">{{Auth::user()->orders->count()}}</h3>
+                <p class="text-muted">Total Orders</p>
+                <div class="progress">
+                    <div class="progress-bar l-purple" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
+                </div>
+                {{-- <small>21% higher than last month</small> --}}
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 col-lg-3">
+        <div class="card">
+            <div class="body">
+                <h3 class="mt-0 mb-0">{{Auth::user()->coupons->count()}}</h3>
+                <p class="text-muted">Total Coupons</p>
+                <div class="progress">
+                    <div class="progress-bar l-cyan" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 col-lg-3">
+        <div class="card">
+            <div class="body">
+                <h3 class="mt-0 mb-0">PKR {{Auth::user()->orders->sum('price')}}</h3>
+                <p class="text-muted">Total Order Price</p>
+                <div class="progress">
+                    <div class="progress-bar l-blush" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 col-lg-3">
+        <div class="card">
+            <div class="body">
+                <h3 class="mt-0 mb-0">PKR {{Auth::user()->couponSales()}}</h3>
+                <p class="text-muted">Coupon Sales</p>
+                <div class="progress">
+                    <div class="progress-bar l-blue" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 @if (Auth::user()->checkstatus() =='old')
 
 <div class="row clearfix">
@@ -171,9 +218,9 @@ Dashboard
         </div>
     </div>
 </div>
-<div id="user-tree"></div>
+{{-- <div id="user-tree"></div> --}}
 
-@if(Auth::user()->package && Auth::user()->package->package_level_rewards()->where('type',1)->count() > 0)
+{{-- @if(Auth::user()->package && Auth::user()->package->package_level_rewards()->where('type',1)->count() > 0)
 <div class="row clearfix">
     <div class="col-sm-12 col-md-12 col-lg-12">
         <div class="card">
@@ -233,8 +280,8 @@ Dashboard
         </div>
     </div>
 </div> 
-@else
-<div class="row clearfix">
+@else --}}
+{{-- <div class="row clearfix">
     <div class="col-sm-12 col-md-12 col-lg-12">
         <div class="card">
             <div class="header">
@@ -330,85 +377,13 @@ Dashboard
             </div>
         </div>
     </div>
-</div> 
-@endif
-{{-- <div class="row clearfix">
-    <div class="col-lg-12">
-        <div class="card">
-            <div class="header">
-                <h2><strong><i class="zmdi zmdi-chart"></i> Sales</strong> Report</h2>
-                <ul class="header-dropdown">
-                    <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
-                        <ul class="dropdown-menu dropdown-menu-right slideUp">
-                            <li><a href="javascript:void(0);">Edit</a></li>
-                            <li><a href="javascript:void(0);">Delete</a></li>
-                            <li><a href="javascript:void(0);">Report</a></li>
-                        </ul>
-                    </li>
-                    <li class="remove">
-                        <a role="button" class="boxs-close"><i class="zmdi zmdi-close"></i></a>
-                    </li>
-                </ul>
-            </div>
-            <div class="body mb-2">
-                <div class="row clearfix">
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="state_w1 mb-1 mt-1">
-                            <div class="d-flex justify-content-between">
-                                <div>
-                                    <h5>2,365</h5>
-                                    <span><i class="zmdi zmdi-balance"></i> Revenue</span>
-                                </div>
-                                <div class="sparkline" data-type="bar" data-width="97%" data-height="55px" data-bar-Width="3" data-bar-Spacing="5" data-bar-Color="#868e96">5,2,3,7,6,4,8,1</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="state_w1 mb-1 mt-1">
-                            <div class="d-flex justify-content-between">
-                                <div>                                
-                                    <h5>365</h5>
-                                    <span><i class="zmdi zmdi-turning-sign"></i> Returns</span>
-                                </div>
-                                <div class="sparkline" data-type="bar" data-width="97%" data-height="55px" data-bar-Width="3" data-bar-Spacing="5" data-bar-Color="#2bcbba">8,2,6,5,1,4,4,3</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="state_w1 mb-1 mt-1">
-                            <div class="d-flex justify-content-between">
-                                <div>
-                                    <h5>65</h5>
-                                    <span><i class="zmdi zmdi-alert-circle-o"></i> Queries</span>
-                                </div>
-                                <div class="sparkline" data-type="bar" data-width="97%" data-height="55px" data-bar-Width="3" data-bar-Spacing="5" data-bar-Color="#82c885">4,4,3,9,2,1,5,7</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="state_w1 mb-1 mt-1">
-                            <div class="d-flex justify-content-between">
-                                <div>                            
-                                    <h5>2,055</h5>
-                                    <span><i class="zmdi zmdi-print"></i> Invoices</span>
-                                </div>
-                                <div class="sparkline" data-type="bar" data-width="97%" data-height="55px" data-bar-Width="3" data-bar-Spacing="5" data-bar-Color="#45aaf2">7,5,3,8,4,6,2,9</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="body">
-                <div id="chart-area-spline-sracked" class="c3_chart d_sales"></div>
-            </div>
-        </div>
-    </div>
-</div>    --}}
+</div>  --}}
+{{-- @endif --}}
 @endif
 @endsection
 
 @section('scripts')
-<script>
+{{-- <script>
     var user_id = "{{Auth::user()->id}}";
     getTree(user_id);
     function getTree(user_id)
@@ -427,5 +402,5 @@ Dashboard
             }
         });
     }
-</script>
+</script> --}}
 @endsection

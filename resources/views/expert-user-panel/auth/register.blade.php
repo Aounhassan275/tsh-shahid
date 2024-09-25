@@ -31,7 +31,7 @@
                 <form class="card auth_form" enctype="multipart/form-data"  method="POST" action="{{route('user.register')}}" >
                     @csrf
                     <div class="header">
-                        <img class="logo" src="{{asset('expert-user-panel-template/assets/images/logo.svg')}}" alt="">
+                        <img class="logo" src="{{asset('tsh-template/tsh-logo-2.png')}}" style="width:165px;" alt="">
                         <h5>Sign Up</h5>
                         @if(@$user)
                             <p>Refer By : {{@$user->name}}</p>                                

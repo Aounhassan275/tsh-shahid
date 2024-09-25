@@ -23,7 +23,7 @@
                 <form class="card auth_form" method="POST" action="{{route('user.login')}}">
                     @csrf
                     <div class="header">
-                        <img class="logo" src="{{asset('expert-user-panel-template/assets/images/logo.svg')}}" alt="">
+                        <img class="logo" src="{{asset('tsh-template/tsh-logo-2.png')}}" style="width:165px;" alt="">
                         <h5>Log in</h5>
                     </div>
                     <div class="body">

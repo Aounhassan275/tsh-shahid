@@ -36,4 +36,9 @@ class Product extends Model
     {
         return $this->hasMany(ProductLevel::class);
     }
+    public function discountPercentage()
+    {
+        $discount = 100 * ($this->fake_price - $this->price)/ $this->fake_price;
+        return round($discount,0).'% OFF';
+    }
 }

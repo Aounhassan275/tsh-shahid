@@ -73,7 +73,7 @@
 <aside id="leftsidebar" class="sidebar">
     <div class="navbar-brand">
         <button class="btn-menu ls-toggle-btn" type="button"><i class="zmdi zmdi-menu"></i></button>
-        <a href="{{url('/')}}"><img src="{{asset('expert-user-panel-template/assets/images/logo.svg')}}" width="25" alt="Aero"><span class="m-l-10">{{App\Models\Setting::siteName()}}</span></a>
+        <a href="{{url('/')}}"><img src="{{asset('tsh-template/tsh-logo-3.png')}}" width="165" alt="Aero"></a>
     </div>
     <div class="menu">
         
@@ -107,12 +107,12 @@
                     <li><a href="{{url('user/indirect_earning')}}">In-Direct</a></li>
                 </ul>
             </li>
-            <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-assignment"></i><span>AutoPool</span></a>
+            {{-- <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-assignment"></i><span>AutoPool</span></a>
                 <ul class="ml-menu">
                     <li><a href="{{route('user.autopool.package_1')}}">Package 1</a></li>
                     <li><a href="{{route('user.autopool.package_2')}}">Package 2</a></li>
                 </ul>
-            </li>
+            </li> --}}
             @elseif (Auth::user()->checkstatus() =='fresh' && Auth::user()->status=='pending')
                 <li><a href="{{route('user.package.index')}}"><i class="zmdi zmdi-account"></i><span>Packages</span></a></li>
             @endif 

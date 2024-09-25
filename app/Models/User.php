@@ -647,4 +647,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(ChatMessage::class,'user_id');
     }
+    public function couponSales()
+    {
+        $couponIds = Coupon::where('user_id',$this->id)->get()->pluck('id')->toArray();
+        return Order::where('user_id',$this->id)->whereIn('coupon_id',$couponIds)->sum('price');
+    }
 }

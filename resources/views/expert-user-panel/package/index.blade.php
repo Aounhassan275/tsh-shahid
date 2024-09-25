@@ -20,7 +20,7 @@ Packages
             </div>
             <div class="body">
                 <ul class="feature-list list-unstyled">
-                    <li>Direct Income is PKR {{$package->direct_income}}</li>
+                    {{-- <li>Direct Income is PKR {{$package->direct_income}}</li> --}}
                     {{-- <li>In-direct Income is PKR {{$package->indirect_income}} </li> --}}
                     {{-- <li>Withdraw Limit is PKR {{$package->withdraw_limit}}</li> --}}
                     {{-- <li>Income Limit is PKR {{$package->income_limit}}</li> --}}

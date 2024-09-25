@@ -64,6 +64,7 @@ Create Order on Product {{$product->name}}
                                 @else 
                                 <input type="radio" name="order_type" checked value="2" required> Balance                                            
                                 @endif
+                                <input type="radio" name="order_type" checked value="4" required> COD                                            
                             </div>
                         </div>
                         @if($product->is_stock)

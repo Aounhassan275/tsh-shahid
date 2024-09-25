@@ -53,6 +53,8 @@
 					<li class="{{Request::is('products')?'active':''}}"><a href="{{url('products')}}">Products</a></li>
 					<li class="{{Request::is('contact_us')?'active':''}}"><a href="{{url('contact_us')}}">Contact</a></li>
 					<li class="{{Request::is('about_us')?'active':''}}"><a href="{{url('about_us')}}">About Us</a></li>
+					<li class="login-link" style="display:none;"><a href="{{url('user/login')}}">Login</a></li>
+					<li class="login-link" style="display:none;"><a href="{{url('user/register',App\Models\User::find(1)->refferral_link)}}">Register</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -75,9 +77,8 @@
 				<li class="{{Request::is('contact_us')?'active':''}}"><a href="{{url('contact_us')}}">Contact Us</a></li>
 				<li class="{{Request::is('about_us')?'active':''}}"><a href="{{url('about_us')}}">About Us</a></li>
 			</ul>
-			<p class="copyright"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+			<p class="copyright">
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | {{App\Models\Setting::siteName()}}
 </p>
 		</div>
 	</footer>
