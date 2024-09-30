@@ -23,7 +23,10 @@ class CouponController extends Controller
      */
     public function index()
     {
-        return view($this->directory.'.coupon.index');
+        if (Auth::user()->checkstatus() =='old')
+        {
+            return view($this->directory.'.coupon.index');
+        }
     }
 
     /**

@@ -68,7 +68,7 @@
 
 
 <!-- Recent game section  -->
-<section class="recent-game-section spad set-bg" data-setbg="{{asset('tsh-template/img/recent-game-bg.png')}}">
+<section class="recent-game-section spad">
   <div class="container">
     <div class="section-title">
       <div class="cata new">new</div>
@@ -141,7 +141,7 @@
 </section> --}}
 <!-- Tournaments section bg -->
 	<!-- Review section -->
-	<section class="review-section spad set-bg" data-setbg="{{asset('tsh-template/img/review-bg.png')}}">
+	<section class="review-section spad " >
 		<div class="container">
 			<div class="section-title">
 				<div class="cata new">new</div>

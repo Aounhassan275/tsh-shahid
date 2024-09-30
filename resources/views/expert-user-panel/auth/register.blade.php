@@ -57,12 +57,12 @@
                                 <span class="input-group-text"><i class="zmdi zmdi-phone-locked"></i></span>
                             </div>
                         </div>
-                        <div class="input-group mb-3">
+                        {{-- <div class="input-group mb-3">
                             <input type="file" name="image" class="form-control" placeholder="Phone" required>
                             <div class="input-group-append">
                                 <span class="input-group-text"><i class="zmdi zmdi-phone-locked"></i></span>
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="input-group mb-3">
                             <input id="pwd" minlength="4" onkeyup="validatePassword(this.value);" value="{{old('password')}}"  type="password" class="form-control" name="password" placeholder="Password">
                             <div class="input-group-append">                                
@@ -77,7 +77,7 @@
                             </div>        
                         </div>
                         <span id="confirmmsg"></span>
-                        <button type="submit" class="btn btn-primary btn-block waves-effect waves-light">Sign In</button>
+                        <button type="submit" class="btn btn-primary btn-block waves-effect waves-light">Sign Up</button>
                     </div>
                 </form>
             </div>

@@ -125,7 +125,9 @@
                     <li><a href="{{route('user.product.index')}}">Products</a></li>
                     @endif
                     <li><a href="{{route('user.order.index')}}">Orders</a></li>
+                    @if (Auth::user()->checkstatus() =='old')
                     <li><a href="{{route('user.coupon.index')}}">Coupon</a></li>
+                    @endif
                 </ul>
             </li>
             <li><a href="{{route('user.chat.index')}}"><i class="zmdi zmdi-email"></i><span>Chat With Admin</span></a></li>
