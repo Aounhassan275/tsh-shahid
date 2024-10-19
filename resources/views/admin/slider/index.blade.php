@@ -16,15 +16,27 @@
                 <form method="POST" action="{{route('admin.slider.store')}}" enctype="multipart/form-data" >
                    @csrf
                    <div class="row">
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-3">
                             <label class="form-label">Slider Title</label>
                             <input type="text" name="title" class="form-control" placeholder="Enter Slider Name" required>
                         </div>
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-md-3">
+                            <label class="form-label">Slider Type</label>
+                            <select name="type"  class="form-control">
+                                <option value="">Select Page</option>
+                                <option value="Home">Home</option>
+                                <option value="Product">Product</option>
+                                <option value="Brand">Brand</option>
+                                <option value="Category">Category</option>
+                                <option value="Contact Us">Contact Us</option>
+                                <option value="About Us">About Us</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-3">
                             <label class="form-label">Slider Image</label>
                             <input type="file" name="image" class="form-control" placeholder="" required>
                         </div>
-                        <div class="form-group col-md-2">
+                        <div class="form-group col-md-3">
                             <label class="form-label">Slider Background Color</label>
                             <input type="color" class="form-control form-control-color" name="color" id="exampleColorInput" value="#563d7c" title="Choose your color">
                         </div>
@@ -52,6 +64,7 @@
                     <th>#</th>
                     <th>Slider Image</th>
                     <th>Slider Title</th>
+                    <th>Slider Type</th>
                     <th>Slider Background Color</th>
                     <th>Action</th>
                     <th>Action</th>
@@ -63,10 +76,12 @@
                     <td>{{$key+1}}</td>
                     <td><img src="{{asset($slider->image)}}" height="100" width="100" alt=""></td>
                     <td>{{$slider->title}}</td>
+                    <td>{{$slider->type ? $slider->type : 'Home'}}</td>
                     <td>{{$slider->color}}</td>
                     <td>
                         <button data-toggle="modal" data-target="#edit_modal" title="{{$slider->title}}" 
-                            color="{{$slider->color}}"  description="{{$slider->description}}"  id="{{$slider->id}}" class="edit-btn btn btn-primary">Edit</button>
+                            color="{{$slider->color}}"  type="{{$slider->type}}" description="{{$slider->description}}"  
+                            id="{{$slider->id}}" class="edit-btn btn btn-primary">Edit</button>
                         </td>
                     <td>
                         <form action="{{route('admin.slider.destroy',$slider->id)}}" method="POST">
@@ -96,6 +111,18 @@
                     <div class="form-group">
                         <label>Slider Title</label>
                         <input type="text" name="title" id="title"  class="form-control">
+                    </div>
+                    <div class="form-group ">
+                        <label class="form-label">Slider Type</label>
+                        <select name="type" id="type" class="form-control">
+                            <option value="">Select Page</option>
+                            <option value="Home">Home</option>
+                            <option value="Product">Product</option>
+                            <option value="Brand">Brand</option>
+                            <option value="Category">Category</option>
+                            <option value="Contact Us">Contact Us</option>
+                            <option value="About Us">About Us</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label>Slider Image</label>
@@ -139,7 +166,13 @@
             let title = $(this).attr('title');
             let description = $(this).attr('description');
             let color = $(this).attr('color');
+            let type = $(this).attr('type');
             let id = $(this).attr('id');
+            if(type == ''){
+                $('#type').val('Home');
+            }else{
+                $('#type').val(type);
+            }
             $('#title').val(title);
             $('#color').val(color);
             $('#description').val(description);

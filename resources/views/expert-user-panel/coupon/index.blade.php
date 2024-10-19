@@ -35,7 +35,7 @@ Coupons
                                     <td>{{$coupon->code}}</td>
                                     <td>{{$coupon->name}}</td>
                                     <td>{{$coupon->percentage}}</td>
-                                    <td>{{$coupon->orders->count()}}</td>
+                                    <td><a href="{{route('user.coupon.show',$coupon->id)}}"> {{$coupon->orders->count()}}</a></td>
                                     <td>
                                         <a href="{{route('user.coupon.edit',$coupon->id)}}"><button class="btn btn-primary">Edit</button></a>
                                         <form action="{{route('user.coupon.destroy',$coupon->id)}}" method="POST">

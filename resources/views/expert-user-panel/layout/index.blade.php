@@ -113,11 +113,11 @@
                     <li><a href="{{route('user.autopool.package_2')}}">Package 2</a></li>
                 </ul>
             </li> --}}
+            <li><a href="{{route('user.balance_transfer.index')}}"><i class="zmdi zmdi-account"></i><span>Balance Transfer</span></a></li>
             @elseif (Auth::user()->checkstatus() =='fresh' && Auth::user()->status=='pending')
                 <li><a href="{{route('user.package.index')}}"><i class="zmdi zmdi-account"></i><span>Packages</span></a></li>
             @endif 
             <li><a href="{{route('user.simple-deposit.index')}}"><i class="zmdi zmdi-account"></i><span>Deposit</span></a></li>
-            <li><a href="{{route('user.balance_transfer.index')}}"><i class="zmdi zmdi-account"></i><span>Balance Transfer</span></a></li>
             
             <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-assignment"></i><span>Ecommerce Section</span></a>
                 <ul class="ml-menu">

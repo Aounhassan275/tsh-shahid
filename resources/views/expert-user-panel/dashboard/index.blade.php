@@ -17,7 +17,7 @@ Dashboard
     </div>
 </div>
 <div class="row clearfix">
-    <div class="col-lg-4 col-md-6 col-sm-12">
+    <div class="col-lg-3 col-md-6 col-sm-12">
         <div class="card widget_2 big_icon traffic">
             <div class="body">
                 <h6>Balance</h6>
@@ -25,7 +25,7 @@ Dashboard
             </div>
         </div>
     </div>
-    <div class="col-lg-4 col-md-6 col-sm-12">
+    <div class="col-lg-3 col-md-6 col-sm-12">
         <div class="card widget_2 big_icon sales">
             <div class="body">
                 <h6>Direct Earning</h6>
@@ -33,11 +33,19 @@ Dashboard
             </div>
         </div>
     </div>
-    <div class="col-lg-4 col-md-6 col-sm-12">
+    <div class="col-lg-3 col-md-6 col-sm-12">
         <div class="card widget_2 big_icon domains">
             <div class="body">
                 <h6>Indirect Earning</h6>
                 <h2>{{Auth::user()->earnings()->where('type','indirect_income')->sum('price')}} <small class="info">PKR</small></h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-12">
+        <div class="card widget_2 domains">
+            <div class="body">
+                <h6>Package Active </h6>
+                <h2>{{Auth::user()->a_date ? Carbon\Carbon::parse(Auth::user()->a_date)->format('d M,Y') : ''}}</h2>
             </div>
         </div>
     </div>

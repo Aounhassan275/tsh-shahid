@@ -9,7 +9,7 @@
 <!-- Hero section -->
 <section class="hero-section">
   <div class="hero-slider owl-carousel">
-    @foreach(App\Models\Slider::all() as $slider)
+    @foreach(App\Models\Slider::where('type','Home')->orWhereNull('type')->get() as $slider)
     <div class="hs-item set-bg" data-setbg="{{asset($slider->image)}}">
       <div class="hs-text">
         <div class="container">

@@ -5,6 +5,22 @@
 @endsection
 
 @section('content')
+<!-- Hero section -->
+<section class="hero-section">
+	<div class="hero-slider owl-carousel">
+	  @foreach(App\Models\Slider::where('type','Brand')->get() as $slider)
+	  <div class="hs-item set-bg" data-setbg="{{asset($slider->image)}}">
+		<div class="hs-text">
+		  <div class="container">
+			<h2>{{$slider->title}}</h2>
+			<p>{{ Illuminate\Support\Str::limit(@$slider->description, 60)}}</p>
+		  </div>
+		</div>
+	  </div>
+	  @endforeach
+	</div>
+</section>
+  <!-- Hero section end -->
 <div class="latest-news-section">
 	<div class="ln-title">Latest News</div>
 	<div class="news-ticker">
@@ -19,19 +35,8 @@
 
 
 <!-- Page info section -->
-<section class="page-info-section set-bg" data-setbg="{{asset('tsh-template/img/page-top-bg/1.jpg')}}">
-	<div class="pi-content">
-		<div class="container">
-			<div class="row">
-				<div class="col-xl-5 col-lg-6 text-white">
-					<h2>Brands</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris scelerisque, at rutrum nulla dictum.</p>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-<section class="recent-game-section spad set-bg" data-setbg="{{asset('tsh-template/img/recent-game-bg.png')}}">
+
+<section class="recent-game-section spad set-bg">
 	<div class="container">
 	  <div class="section-title">
 		{{-- <div class="cata new">new</div> --}}

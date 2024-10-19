@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Coupon;
+use App\Models\Order;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -62,9 +63,15 @@ class CouponController extends Controller
      * @param  \App\Models\Coupon  $coupon
      * @return \Illuminate\Http\Response
      */
-    public function show(Coupon $coupon)
+    public function show($id)
     {
-        //
+        $coupon = Coupon::find($id);
+        if($coupon->user_id != Auth::user()->id){
+            toastr()->error('Not Allowed');
+            return redirect()->back();
+        }
+        $orders = Order::where('coupon_id',$id)->get();
+        return view($this->directory.'.coupon.show',compact('coupon','orders'));
     }
 
     /**

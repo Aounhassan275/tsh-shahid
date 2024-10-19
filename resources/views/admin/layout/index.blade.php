@@ -152,12 +152,12 @@
 							<li class="sidebar-item {{Request::is('admin/reward/leader')?'active':''}}"><a class="sidebar-link" href="{{route('admin.reward.leader')}}">Leader</a></li>
 						</ul>
 					</li>	
-					@endif
 					<li class="sidebar-item {{Request::is('admin/chat*')?'active':''}}">
 						<a class="sidebar-link" href="{{route('admin.chat.index')}}">
 							<i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Chat</span>
 						</a>
 					</li>	
+					@endif
 				</ul>
 
 				<div class="sidebar-bottom d-none d-lg-block">

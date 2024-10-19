@@ -34,7 +34,9 @@ class WithdrawController extends Controller
      */
     public function create()
     {
-        return view($this->directory.'.withdraw.create');
+        $lastWithdraw = Withdraw::where('user_id',Auth::user()->id)
+                ->orderBy('created_at','desc')->first();
+        return view($this->directory.'.withdraw.create',compact('lastWithdraw'));
     }
 
     /**

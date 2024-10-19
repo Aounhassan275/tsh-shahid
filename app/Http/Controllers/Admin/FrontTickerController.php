@@ -81,10 +81,11 @@ class FrontTickerController extends Controller
      * @param  \App\Models\FrontTicker  $frontTicker
      * @return \Illuminate\Http\Response
      */
-    public function destroy(FrontTicker $ticker)
+    public function destroy($id)
     {
+        $ticker = FrontTicker::findorFail($id);
         $ticker->delete();
-        toastr()->success('Ticker Message Informations Deleted successfully');
+        toastr()->success('Frontend Ticker Message Informations Deleted successfully');
         return redirect()->back();
     }
 }

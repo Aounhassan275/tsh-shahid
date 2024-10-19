@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Slider extends Model
 {
     protected $fillable = [
-        'title','description','image','color'
+        'title','description','image','color','type'
     ];
     public function setImageAttribute($value){
         $this->attributes['image'] = ImageHelper::saveProductImage($value,'/uploaded_images/sliders/');
