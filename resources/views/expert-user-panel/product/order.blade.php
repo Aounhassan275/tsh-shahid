@@ -70,7 +70,7 @@ Orders
                                     <td >{{$order->quantity}}</td>
                                     <td >{{$order->phone}}</td>
                                     <td >{{$order->address}}</td>
-                                    <td >{{$order->status}}</td>
+                                    <td >{{$order->status}} @if($order->order_type == 5) (In-Stocked) @endif</td>
                                     <td >{{$order->created_at->format('M d,Y h:i A')}}</td>
                                     <td >PKR {{$order->delivery_cost}}</td>
                                     <td >PKR {{$order->discount_amount}}</td>

@@ -108,7 +108,8 @@ class RefferralHelper
         Earning::create([
             'due_to' => $user->id, 
             'user_id' => $refer_by->id, 
-            'price' => $package->direct_income, 
+            'temp_price' => $package->direct_income, 
+            'price' => 0, 
             'type' => 'direct_income', 
         ]);
     }
@@ -137,7 +138,8 @@ class RefferralHelper
         Earning::create([
             'due_to' => $user->id, 
             'user_id' => $refer_by->id, 
-            'price' => $package->direct_income, 
+            'temp_price' => $package->direct_income, 
+            'price' => 0, 
             'type' => 'direct_income', 
         ]);
     }
@@ -150,7 +152,8 @@ class RefferralHelper
         Earning::create([
             'due_to' => $user->id, 
             'user_id' => $refer_by->id, 
-            'price' => $package->direct_income, 
+            'temp_price' => $package->direct_income, 
+            'price' => 0, 
             'type' => 'direct_income', 
         ]);
     }

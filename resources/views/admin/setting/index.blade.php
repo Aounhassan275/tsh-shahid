@@ -18,6 +18,7 @@
                 <a href="{{url('admin/add_reward_for_autopool_package_1')}}" class="btn btn-danger  mt-2 ml-2">Add Reward For Autopool Package 1</a>
                 <a href="{{url('admin/add_reward_for_autopool_package_2')}}" class="btn btn-primary  mt-2 ml-2">Add Reward For Autopool Package 2</a> --}}
                 <a href="{{url('admin/add_reward_for_in_stock_level')}}" class="btn btn-success  mt-2 ml-2">Add Reward For In-Stock Level</a>
+                <a href="{{url('admin/transfer_amount_to_direct_and_indirect')}}" class="btn btn-success  mt-2 ml-2">Transfer Amount to Direct and In-direct</a>
             </div>
             <div class="card-body">
                 <form method="POST" action="{{route('admin.setting.store')}}" enctype="multipart/form-data" >

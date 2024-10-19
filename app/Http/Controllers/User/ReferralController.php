@@ -49,7 +49,8 @@ class ReferralController extends Controller
             ]);
             Earning::create([
                 "user_id" => $refer_by->id,
-                "price" => $direct_income,
+                "temp_price" => $direct_income,
+                "price" => 0,
                 "type" => 'direct_income'
             ]);
             $company_account->update([
@@ -265,7 +266,8 @@ class ReferralController extends Controller
             ]);
             Earning::create([
                 "user_id" => $refer_by->id,
-                "price" => $direct_income,
+                "temp_price" => $direct_income,
+                "price" => 0,
                 "type" => 'direct_income'
             ]);
             $company_account->update([

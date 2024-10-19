@@ -29,7 +29,7 @@ Dashboard
         <div class="card widget_2 big_icon sales">
             <div class="body">
                 <h6>Direct Earning</h6>
-                <h2>{{Auth::user()->earnings()->where('type','direct_income')->sum('price')}} <small class="info">PKR</small></h2>
+                <h2>{{Auth::user()->earnings()->where('type','direct_income')->sum('price') + Auth::user()->earnings()->where('type','direct_income')->sum('temp_price')}} <small class="info">PKR</small></h2>
             </div>
         </div>
     </div>

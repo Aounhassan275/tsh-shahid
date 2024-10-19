@@ -27,7 +27,8 @@ class DistributeOrderAmountHelper
                 Earning::create([
                     'due_to' => $user->id, 
                     'user_id' => $refer_by->id, 
-                    'price' => $direct_amount, 
+                    'price' => 0, 
+                    'temp_price' => $direct_amount, 
                     'type' => 'direct_income', 
                 ]);
                 $total_order_price = $total_order_price - $direct_amount;

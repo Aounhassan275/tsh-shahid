@@ -6,7 +6,7 @@ Create Order on Product {{$product->name}}
 @section('content')
 <div class="row clearfix">
     
-    <div class="col-md-12 col-lg-6">
+    <div class="col-md-12 col-lg-4">
         <div class="card">
             <div class="body">
                 <h3 class="mt-0 mb-0">PKR {{Auth::user()->balance}}</h3>
@@ -17,13 +17,24 @@ Create Order on Product {{$product->name}}
             </div>
         </div>
     </div>
-    <div class="col-md-12 col-lg-6">
+    <div class="col-md-12 col-lg-4">
         <div class="card">
             <div class="body">
                 <h3 class="mt-0 mb-0">PKR {{Auth::user()->amount_for_shop}}</h3>
                 <p class="text-muted">Amount For Shopping</p>
                 <div class="progress">
                     <div class="progress-bar l-green" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 col-lg-4">
+        <div class="card">
+            <div class="body">
+                <h3 class="mt-0 mb-0">PKR {{Auth::user()->instock_wallet}}</h3>
+                <p class="text-muted">In-stock Wallet</p>
+                <div class="progress">
+                    <div class="progress-bar l-yellow" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                 </div>
             </div>
         </div>
@@ -64,7 +75,10 @@ Create Order on Product {{$product->name}}
                                 @else 
                                 <input type="radio" name="order_type" checked value="2" required> Balance                                            
                                 @endif
-                                <input type="radio" name="order_type" checked value="4" required> COD                                            
+                                <input type="radio" name="order_type" checked value="4" required> COD       
+                                @if($product->is_stock)                                     
+                                    <input type="radio" name="order_type" value="5" required> From Instock Wallet                                            
+                                @endif
                             </div>
                         </div>
                         @if($product->is_stock)
@@ -84,7 +98,7 @@ Create Order on Product {{$product->name}}
                                 <input type="text" name="price" id="price" readonly value="{{@$product->price}}" class="form-control" placeholder="" required/>
                             </div>
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-4 normal_fields">
                             <div class="form-group">           
                                 <label for="">Apply Coupon Code?</label>                                                 
                                 <input type="hidden" name="discount_amount" id="discount_amount" class="form-control" placeholder="" />
@@ -93,16 +107,16 @@ Create Order on Product {{$product->name}}
                                 <p id="error-coupon-response" style="color:red;"></p>
                             </div>
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-4 normal_fields">
                             <div class="form-group">           
                                 <label for="">Delivery Charges</label>                                                 
                                 <input type="text" name="delivery_cost" id="delivery_cost" readonly value="{{@$product->delivery_charges}}" class="form-control" placeholder="" required/>
                             </div>
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-4 normal_fields">
                             <div class="form-group">           
                                 <label for="">Delivery Address</label>                                                 
-                                <input type="text" name="address" value="" class="form-control" placeholder="" required/>
+                                <input type="text" name="address" id="address" value="" class="form-control" placeholder="" required/>
                             </div>
                         </div>
                         <div class="col-sm-12">
@@ -124,6 +138,25 @@ Create Order on Product {{$product->name}}
         var qty = $('#quantity').val();
         var price = "{{$product->price}}";
         $('#price').val(qty * price);
+    });
+    $('input[type=radio][name="order_type"]').on('change', function(event) {
+        var value = $(this).val();
+        var product_price = "{{@$product->price}}";
+        var delivery_charges = "{{@$product->delivery_charges}}";
+        if (value == 5) {
+            $('#delivery_cost').val(0);
+            $('#address').val('');
+            $('#coupon_code').val('');
+            $('#discount_amount').val('');
+            $('#address').attr('required',false);
+            $('#price').val(product_price);
+            $('.normal_fields').hide();
+        } else {
+            $('#price').val(product_price);
+            $('#delivery_cost').val(delivery_charges);
+            $('#address').attr('required',true);
+            $('.normal_fields').show();
+        }
     });
     $('#coupon_code').change(function () {
         var coupon_code = $(this).val();

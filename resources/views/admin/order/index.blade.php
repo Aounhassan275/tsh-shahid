@@ -54,6 +54,7 @@
                         @elseif($order->status == "Rejected")
                             <span class="badge badge-danger">{{$order->status}}</span>
                         @endif
+                        @if($order->order_type == 5) (In-Stocked) @endif
                     </td>
                     <td>{{Carbon\Carbon::parse($order->created_at)->format('d M,Y')}}</td>
                     {{-- <td>

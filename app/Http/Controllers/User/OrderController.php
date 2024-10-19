@@ -105,6 +105,10 @@ class OrderController extends Controller
         {
             toastr()->error('Your Balance and Shopping Amount Combin is less than Product Price!.');
             return back();
+        }else if ($request->order_type == 5 && $total_amount > Auth::user()->balance)
+        {
+            toastr()->error('Your Balance is less than Product Price!.');
+            return back();
         }
         if($request->coupon_code){
             $request->merge([
@@ -128,6 +132,11 @@ class OrderController extends Controller
             Auth::user()->update([
                 'amount_for_shop' => 0,
                 'balance' => Auth::user()->balance -= $amount_for_balance
+            ]);
+        }else if($request->order_type == 5)
+        {
+            Auth::user()->update([
+                'balance' => Auth::user()->balance -= $total_amount
             ]);
         }
         toastr()->success('Order Created Successfully!.');

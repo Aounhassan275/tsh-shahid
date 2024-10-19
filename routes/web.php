@@ -30,6 +30,7 @@ Route::group(['prefix' => 'admin', 'as'=>'admin.','namespace' => 'Admin'], funct
     Route::get('clear_auto_pool_tree', 'AuthController@clearAutoPoolTree');
     Route::get('make_leader_on_level_6', 'AuthController@makeLeaderOnLevel6');
     Route::get('add_reward_for_in_stock_level', 'CronjobController@addRewardForInStockLevel');
+    Route::get('transfer_amount_to_direct_and_indirect', 'CronjobController@transferAmountToDirectAndIndirect');
      /******************MESSAGE ROUTES****************/
      Route::resource('message', 'MessageController');
     Route::group(['middleware' => 'auth:admin'], function () { 

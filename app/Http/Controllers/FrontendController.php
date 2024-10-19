@@ -107,7 +107,8 @@ class FrontendController extends Controller
                 ]);
                 Earning::create([
                     "user_id" => $refer_by->id,
-                    "price" => $direct_income,
+                    "temp_price" => $direct_income,
+                    "price" => 0,
                     "type" => 'direct_income'
                 ]);
                 $flash_income->update([

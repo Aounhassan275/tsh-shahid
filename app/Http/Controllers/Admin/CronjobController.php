@@ -68,4 +68,26 @@ class CronjobController extends Controller
         toastr()->success('Add Reward In Stock Values Cronjob Run Successfully');
         return back();
     }
+    public function transferAmountToDirectAndIndirect()
+    {
+        info("Transfer Amount To Direct And Indirect Cronjob Started At" . date("d-M-Y h:i a"));
+        $earnings = Earning::where('temp_price','>',0)->get();		
+        if ($earnings) {
+            $total_earnings = $earnings->count();
+            info("Transfer Amount To Direct And Indirect CRONJOB Total Users : $total_earnings");
+            foreach($earnings as $earning)
+            {
+                $temp_price = $earning->temp_price;
+                $earning->update([
+                    'temp_price' => 0,
+                    'price' => $temp_price,
+                ]);
+            }
+		} else {
+			info("Transfer Amount To Direct And Indirect CRONJOB: Earning not found. ");
+		}
+		info("Transfer Amount To Direct And Indirect CRONJOB END AT " . date("d-M-Y h:i a"));
+        toastr()->success('Transfer Amount To Direct And Indirect Cronjob Run Successfully');
+        return back();
+    }
 }

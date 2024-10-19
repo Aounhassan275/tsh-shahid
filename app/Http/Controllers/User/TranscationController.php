@@ -79,7 +79,7 @@ class TranscationController extends Controller
                 $flash_income= CompanyAccount::flash_income();
                 foreach($levels as $index => $level_reward)
                 {
-                    if($parents[$index])
+                    if($parents && $parents[$index])
                     {
                         $instockTeamReward = $request->amount / 100 * $level_reward->amount;
 
