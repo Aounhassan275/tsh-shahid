@@ -8,6 +8,7 @@
     <meta name="description" content="{{App\Models\Setting::siteName()}} | BEST ONLINE EARNING SITE | No. 1 Marketing Forum to Earn Online.">
 	<meta name="author" content="Bootlab">
     <title>ADMIN PANEL | {{App\Models\Setting::siteName()}}</title> 	
+	<link rel="icon" href="{{asset('expert-user-panel-template/favicon.ico')}}" type="image/x-icon"> <!-- Favicon-->
 
 	<link rel="preconnect" href="{{asset('//fonts.gstatic.com/')}}" crossorigin="">
 
@@ -131,6 +132,7 @@
 							<li class="sidebar-item {{Request::is('admin/product')?'active':''}}"><a class="sidebar-link" href="{{route('admin.product.index')}}">Manage Product</a></li>
 							<li class="sidebar-item {{Request::is('admin/product/create')?'active':''}}"><a class="sidebar-link" href="{{route('admin.product.create')}}">Create Products</a></li>
 							<li class="sidebar-item {{Request::is('admin/order')?'active':''}}"><a class="sidebar-link" href="{{route('admin.order.index')}}">Orders</a></li>
+							<li class="sidebar-item {{Request::is('admin/order/instock')?'active':''}}"><a class="sidebar-link" href="{{route('admin.order.instock')}}">In-Stock Orders</a></li>
 						</ul>
 					</li>	
 					<li class="sidebar-item {{Request::is('admin/earning/*')  ?'active':''}}">

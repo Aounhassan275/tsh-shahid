@@ -297,7 +297,7 @@
     <div class="col-lg-12">
         <div class="w-100">
             <div class="row">
-                <div class="col-sm-3">
+                <div class="col-sm-6">
                     <a href="{{route('admin.package.index')}}">
                         <div class="card flex-fill">
                             <div class="card-header">
@@ -319,7 +319,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-sm-3">
+                {{-- <div class="col-sm-3">
                     <a href="{{route('admin.user.index')}}">
                         <div class="card flex-fill">
                             <div class="card-header">
@@ -362,8 +362,8 @@
                             </div>
                         </div>
                     </a>
-                </div>
-                <div class="col-sm-3">
+                </div> --}}
+                <div class="col-sm-6">
                     <a href="{{route('admin.user.index')}}">
                         <div class="card flex-fill">
                             <div class="card-header">

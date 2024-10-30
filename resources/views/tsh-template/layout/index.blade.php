@@ -5,7 +5,7 @@
   @yield('meta')
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- Favicon -->   
-	<link href="{{asset('tsh-template/img/favicon.ico')}}" rel="shortcut icon"/>
+	<link rel="icon" href="{{asset('expert-user-panel-template/favicon.ico')}}" type="image/x-icon"> <!-- Favicon-->
 
 	<!-- Google Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i" rel="stylesheet">

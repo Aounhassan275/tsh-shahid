@@ -115,6 +115,7 @@ Route::group(['prefix' => 'admin', 'as'=>'admin.','namespace' => 'Admin'], funct
         Route::get('order/deliver/{id}', 'OrderController@orderDelivers')->name('order.deliver');  
         Route::get('order/onhold/{id}', 'OrderController@orderonHolds')->name('order.onhold');  
         Route::get('order/rejected/{id}', 'OrderController@orderRejected')->name('order.rejected');  
+        Route::view('order/instock', 'admin.order.in_stock')->name('order.instock');
         Route::resource('order', 'OrderController');  
         /******************EARNING ROUTES****************/
        Route::view('earning/direct_income', 'admin.earning.direct')->name('earning.direct_income');

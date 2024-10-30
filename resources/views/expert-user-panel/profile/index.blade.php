@@ -24,6 +24,29 @@ Profile
                                 <input type="password" name="password" class="form-control" placeholder="" />
                             </div>
                         </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">           
+                                <label for="">Account Holder Name</label>                                                 
+                                <input type="text" name="account_holder" value="{{Auth::user()->account_holder}}" class="form-control" placeholder="" required/>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">           
+                                <label for="">Account Name</label>                                                 
+                                <input type="text" name="account_number" value="{{Auth::user()->account_number}}" class="form-control" placeholder="" required/>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">           
+                                <label for="">Payment Method</label>                                                 
+                                <select class="form-control show-tick ms search-select" name="payment_method" data-placeholder="Select">
+                                    <option value="">Select a Payment Method</option>
+                                    @foreach(App\Models\Source::all() as $source)
+                                        <option @if($source->name == Auth::user()->payment_method) selected @endif value="{{$source->name}}">{{$source->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
                         <div class="col-sm-12">
                             <div class="form-group text-right">     
                                 <button class="btn btn-primary" type="submit">Update</button>      

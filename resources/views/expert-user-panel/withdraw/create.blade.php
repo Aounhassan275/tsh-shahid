@@ -31,13 +31,13 @@ Create Withdraw
                         <div class="col-sm-6">
                             <div class="form-group">           
                                 <label for="">Withdraw Name</label>                                                 
-                                <input type="text" name="name" value="{{@$lastWithdraw->name}}" class="form-control" placeholder="" required/>
+                                <input type="text" name="name" value="{{@$lastWithdraw->name ? $lastWithdraw->name :  Auth::user()->account_holder}}" class="form-control" placeholder="" required/>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">           
                                 <label for="">Withdraw Account</label>                                                 
-                                <input type="text" name="c" value="{{@$lastWithdraw->account}}" class="form-control" placeholder="" required/>
+                                <input type="text" name="account" value="{{@$lastWithdraw->account ? @$lastWithdraw->account : Auth::user()->account_number}}" class="form-control" placeholder="" required/>
                             </div>
                         </div>
                         <div class="col-sm-6">
@@ -46,7 +46,11 @@ Create Withdraw
                                 <select class="form-control show-tick ms search-select" name="method" required data-placeholder="Select">
                                     <option value="">Select a Payment Method</option>
                                     @foreach(App\Models\Source::all() as $source)
-                                        <option {{$lastWithdraw && $lastWithdraw->method == $source->name ? 'selected' :''}} value="{{$source->name}}">{{$source->name}}</option>
+                                        @if($lastWithdraw)
+                                            <option {{($lastWithdraw && $lastWithdraw->method == $source->name) ? 'selected' :''}} value="{{$source->name}}">{{$source->name}}</option>
+                                        @else
+                                            <option {{(Auth::user()->payment_method && Auth::user()->payment_method  == $source->name) ? 'selected' :''}} value="{{$source->name}}">{{$source->name}}</option>
+                                        @endif
                                     @endforeach
                                 </select>
                             </div>

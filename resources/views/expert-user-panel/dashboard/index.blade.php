@@ -146,8 +146,8 @@ Dashboard
     <div class="col-md-12 col-lg-3">
         <div class="card">
             <div class="body">
-                <h3 class="mt-0 mb-0">{{Auth::user()->coupons->count()}}</h3>
-                <p class="text-muted">Total Coupons</p>
+                <h3 class="mt-0 mb-0">PKR {{Auth::user()->orders->where('order_type',5)->whereIn('status',['In Process','on Hold'])->sum('price')}}</h3>
+                <p class="text-muted">Total In-Stock Orders</p>
                 <div class="progress">
                     <div class="progress-bar l-cyan" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                 </div>

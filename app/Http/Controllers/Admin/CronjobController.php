@@ -25,6 +25,10 @@ class CronjobController extends Controller
             foreach($users as $user)
             {
                 $instockReward = $user->instock_wallet / 100 * Setting::instockReward();
+                $stockPurchases = $user->orders->where('order_type',5)->whereIn('status',['In Process','on Hold'])->sum('price');
+                if($stockPurchases > 0){
+                    $instockReward = $instockReward + $stockPurchases;
+                }
                 $user->update([
                     'balance' => $user->balance + $instockReward,
                 ]);

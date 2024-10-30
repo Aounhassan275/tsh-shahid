@@ -25,7 +25,7 @@ class User extends Authenticatable
         'refer_by','package_id', 'a_date','image','top_referral','auto_wallet','reward_income',
         'left_refferal_package_1','right_refferal_package_1','left_refferal_package_2','right_refferal_package_2',
         'autopool_package_1','autopool_package_2','pending_amount','is_leader','role',
-        'shopping_wallet','amount_for_shop','instock_wallet'
+        'shopping_wallet','amount_for_shop','instock_wallet','account_number','account_holder','payment_method'
     ];
 
     /**
@@ -650,6 +650,6 @@ class User extends Authenticatable
     public function couponSales()
     {
         $couponIds = Coupon::where('user_id',$this->id)->get()->pluck('id')->toArray();
-        return Order::where('user_id',$this->id)->whereIn('coupon_id',$couponIds)->sum('price');
+        return Order::whereIn('coupon_id',$couponIds)->sum('price');
     }
 }
