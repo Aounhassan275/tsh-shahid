@@ -70,7 +70,7 @@ class OrderController extends Controller
         }
         $data['default_to']   = $to;
         $data['default_from'] = $from;
-        $orders = Order::where('user_id',Auth::user()->id)->whereBetween('created_at',[$from, $to])->get();
+        $orders = Order::where('user_id',Auth::user()->id)->where('order_type','!=',5)->whereBetween('created_at',[$from, $to])->get();
         return view($this->directory.'.product.order',compact('orders','data'));
     }
 
@@ -213,5 +213,44 @@ class OrderController extends Controller
                 'message' => $e->getMessage(),
             ];
         }
+    }
+    public function instockOrder(Request $request)
+    {
+        
+        $data['default_to']   = date($this->timeFormat);
+        $data['default_from'] = date($this->timeFormat, strtotime("-30 days", strtotime($data['default_to'])));
+        $to     = $request->input('to');
+        $from   = $request->input('from');
+
+        if(empty($to))
+        {
+            $to = $data['default_to'];
+        }
+
+        if(empty($from))
+        {
+            $from = $data['default_from'];
+        }
+
+        //-01 tells that it is date in yyyy-mm format not in timestamp format
+        $fromDate       = new Carbon($from);
+        $toDate         = new Carbon($to);
+
+        $fromDate->startOfDay();
+        $from = $fromDate->format($this->timeFormat);
+
+        $toDate->endOfDay();
+        $to = $toDate->format($this->timeFormat);
+
+        if($fromDate->greaterThan($toDate)){
+            toastr()->error('From cannot a be a date after To date!.');
+            return back()->withInput();
+        }
+        $data['default_to']   = $to;
+        $data['default_from'] = $from;
+        $orders = Order::where('user_id',Auth::user()->id)
+                ->where('order_type',5)    
+                ->whereBetween('created_at',[$from, $to])->get();
+        return view($this->directory.'.product.instock-order',compact('orders','data'));
     }
 }

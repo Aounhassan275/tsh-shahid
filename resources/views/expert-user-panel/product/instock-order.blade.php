@@ -1,13 +1,13 @@
 @extends('expert-user-panel.layout.index')
 @section('title')
-Orders
+In-Stocks Orders
 @endsection
 @section('content')
 <div class="row clearfix">
     <div class="col-lg-12">
         <div class="card">
             <div class="header">
-                <h2><strong>Orders</strong> </h2>
+                <h2><strong>In-Stocks Orders</strong> </h2>
                
                 <ul class="header-dropdown">
                     <li class="remove">

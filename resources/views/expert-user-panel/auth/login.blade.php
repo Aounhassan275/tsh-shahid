@@ -56,7 +56,7 @@
             </div>
             <div class="col-lg-8 col-sm-12">
                 <div class="card">
-                    <img src="{{asset('expert-user-panel-template/assets/images/signin.svg')}}" alt="Sign In"/>
+                    <img src="{{asset('expert-user-panel-template/login-page.jpeg')}}" alt="Sign In"/>
                 </div>
             </div>
         </div>

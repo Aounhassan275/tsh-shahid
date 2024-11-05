@@ -46,7 +46,7 @@ class CronjobController extends Controller
                 $parents = $user->getParents();
                 foreach($levels as $index => $level_reward)
                 {
-                    if($parents[$index])
+                    if(isset($parents[$index]))
                     {
                         $instockTeamReward = $instockReward / 100 * $level_reward->amount;
 

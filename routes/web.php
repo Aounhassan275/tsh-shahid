@@ -188,6 +188,7 @@ Route::group(['prefix' => 'user', 'as'=>'user.','namespace' => 'User'], function
     Route::get('product/order/{id}', 'ProductController@orderProducts')->name('product.order');
     /******************ORDER ROUTES****************/
     Route::post('order/apply_coupon', 'OrderController@applyOrder')->name('order.apply_coupon');
+    Route::get('instock-order', 'OrderController@instockOrder')->name('order.instock');
     Route::resource('order', 'OrderController');
     Route::resource('balance_transfer', 'TranscationController');  
     /******************Chat  ROUTES****************/

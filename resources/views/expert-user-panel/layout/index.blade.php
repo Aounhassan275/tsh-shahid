@@ -59,6 +59,12 @@
                                 <p class="mb-0">Orders</p>
                             </a>
                         </li>
+                        <li>
+                            <a href="{{route('user.order.instock')}}">
+                                <div class="icon-circle mb-2 bg-red"><i class="zmdi zmdi-tag"></i></div>
+                                <p class="mb-0">In-Stock Orders</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
             </ul>
@@ -125,6 +131,7 @@
                     <li><a href="{{route('user.product.index')}}">Products</a></li>
                     @endif
                     <li><a href="{{route('user.order.index')}}">Orders</a></li>
+                    <li><a href="{{route('user.order.instock')}}">In-Stock Orders</a></li>
                     @if (Auth::user()->checkstatus() =='old')
                     <li><a href="{{route('user.coupon.index')}}">Coupon</a></li>
                     @endif

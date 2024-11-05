@@ -228,7 +228,7 @@ Dashboard
 </div>
 {{-- <div id="user-tree"></div> --}}
 
-{{-- @if(Auth::user()->package && Auth::user()->package->package_level_rewards()->where('type',1)->count() > 0)
+@if(Auth::user()->package && Auth::user()->package->package_level_rewards()->where('type',1)->count() > 0)
 <div class="row clearfix">
     <div class="col-sm-12 col-md-12 col-lg-12">
         <div class="card">
@@ -288,8 +288,8 @@ Dashboard
         </div>
     </div>
 </div> 
-@else --}}
-{{-- <div class="row clearfix">
+@else
+<div class="row clearfix">
     <div class="col-sm-12 col-md-12 col-lg-12">
         <div class="card">
             <div class="header">
@@ -385,8 +385,8 @@ Dashboard
             </div>
         </div>
     </div>
-</div>  --}}
-{{-- @endif --}}
+</div> 
+@endif
 @endif
 @endsection
 

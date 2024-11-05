@@ -11,19 +11,56 @@ use Illuminate\Support\Facades\Auth;
 class WithdrawController extends Controller
 {
     public $directory;
+    private $timeFormat;
 
     public function __construct()
     {
         $this->directory = 'expert-user-panel';
+        $this->timeFormat = 'Y-m-d H:i:s';
     }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view($this->directory.'.withdraw.index');
+        $data['default_to']   = date($this->timeFormat);
+        $data['default_from'] = date($this->timeFormat, strtotime("-30 days", strtotime($data['default_to'])));
+        $to     = $request->input('to');
+        $from   = $request->input('from');
+
+        if(empty($to))
+        {
+            $to = $data['default_to'];
+        }
+
+        if(empty($from))
+        {
+            $from = $data['default_from'];
+        }
+
+        //-01 tells that it is date in yyyy-mm format not in timestamp format
+        $fromDate       = new Carbon($from);
+        $toDate         = new Carbon($to);
+
+        $fromDate->startOfDay();
+        $from = $fromDate->format($this->timeFormat);
+
+        $toDate->endOfDay();
+        $to = $toDate->format($this->timeFormat);
+
+        if($fromDate->greaterThan($toDate)){
+            toastr()->error('From cannot a be a date after To date!.');
+            return back()->withInput();
+        }
+        $data['default_to']   = $to;
+        $data['default_from'] = $from;
+        $withdraws = Withdraw::where('user_id',Auth::user()->id)
+                ->whereBetween('created_at',[$from, $to])
+                ->orderBy('created_at','DESC')
+                ->get();
+        return view($this->directory.'.withdraw.index',compact('withdraws','data'));
 
     }
 

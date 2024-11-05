@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\SimpleDeposit;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -11,19 +12,57 @@ use Illuminate\Support\Facades\Validator;
 class SimpleDepositController extends Controller
 {
     public $directory;
+    public $timeFormat;
 
     public function __construct()
     {
         $this->directory = 'expert-user-panel';
+        $this->timeFormat = 'Y-m-d H:i:s';
+
     }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view($this->directory.'.simple-deposit.index');
+        $data['default_to']   = date($this->timeFormat);
+        $data['default_from'] = date($this->timeFormat, strtotime("-30 days", strtotime($data['default_to'])));
+        $to     = $request->input('to');
+        $from   = $request->input('from');
+
+        if(empty($to))
+        {
+            $to = $data['default_to'];
+        }
+
+        if(empty($from))
+        {
+            $from = $data['default_from'];
+        }
+
+        //-01 tells that it is date in yyyy-mm format not in timestamp format
+        $fromDate       = new Carbon($from);
+        $toDate         = new Carbon($to);
+
+        $fromDate->startOfDay();
+        $from = $fromDate->format($this->timeFormat);
+
+        $toDate->endOfDay();
+        $to = $toDate->format($this->timeFormat);
+
+        if($fromDate->greaterThan($toDate)){
+            toastr()->error('From cannot a be a date after To date!.');
+            return back()->withInput();
+        }
+        $data['default_to']   = $to;
+        $data['default_from'] = $from;
+        $desposits = SimpleDeposit::where('user_id',Auth::user()->id)
+                ->whereBetween('created_at',[$from, $to])
+                ->orderBy('created_at','DESC')
+                ->get();
+        return view($this->directory.'.simple-deposit.index',compact('desposits','data'));
     }
 
     /**
