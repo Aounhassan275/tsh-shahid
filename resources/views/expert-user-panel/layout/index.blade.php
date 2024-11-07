@@ -99,7 +99,7 @@
             </li>
             <li><a href="{{route('user.dashboard.index')}}"><i class="zmdi zmdi-home"></i><span>Dashboard</span></a></li>
             @if (Auth::user()->checkstatus() =='old')
-            <li><a href="{{route('user.package.index')}}"><i class="zmdi zmdi-account"></i><span>Packages</span></a></li>
+            <li><a href="{{route('user.package.index')}}"><i class="zmdi zmdi-account"></i><span>Merchants</span></a></li>
             <li><a href="{{route('user.refer.index')}}"><i class="zmdi zmdi-account"></i><span>Refferral</span></a></li>
             <li ><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-apps"></i><span>Withdraw</span></a>
                 <ul class="ml-menu">
@@ -121,7 +121,7 @@
             </li> --}}
             <li><a href="{{route('user.balance_transfer.index')}}"><i class="zmdi zmdi-account"></i><span>Balance Transfer</span></a></li>
             @elseif (Auth::user()->checkstatus() =='fresh' && Auth::user()->status=='pending')
-                <li><a href="{{route('user.package.index')}}"><i class="zmdi zmdi-account"></i><span>Packages</span></a></li>
+                <li><a href="{{route('user.package.index')}}"><i class="zmdi zmdi-account"></i><span>Merchants</span></a></li>
             @endif 
             <li><a href="{{route('user.simple-deposit.index')}}"><i class="zmdi zmdi-account"></i><span>Deposit</span></a></li>
             
