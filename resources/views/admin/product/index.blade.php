@@ -29,7 +29,7 @@
                     <tr> 
                         <td>{{$key+1}}</td>
                         <td>{{$product->name}}</td>
-                        <td>PKR {{$product->price}}</td>
+                        <td>$ {{$product->price}}</td>
                         <td>{{@$product->category->name}}</td>
                         <td>{{@$product->brand->name}}</td>
                         <td class="table-action">

@@ -30,7 +30,7 @@ Direct Earning
                                 <td ></td>
                                 <td ></td>
                                 <td >Total Direct Income:</td>
-                                <td >PKR {{Auth::user()->earnings()->where('type','direct_income')->sum('price')}}</td>
+                                <td >$ {{Auth::user()->earnings()->where('type','direct_income')->sum('price')}}</td>
                             </tr>
                         </tfoot>
                         <tbody>
@@ -39,7 +39,7 @@ Direct Earning
                                     <td>{{$key + 1}}</td>
                                     <td >{{$earning->created_at->format('M d,Y h:i A')}}</td>
                                     <td >{{$earning->due->name}}</td>
-                                    <td >PKR {{$earning->price}}</td>
+                                    <td >$ {{$earning->price}}</td>
                                 </tr>
                             @endforeach
                         </tbody>

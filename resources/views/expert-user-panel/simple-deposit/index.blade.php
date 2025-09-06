@@ -50,7 +50,7 @@ Deposits
                                     <td>{{$key+1}}</td>
                                     <td>{{$deposit->payment}}</td>
                                     <td>{{$deposit->t_id}}</td>
-                                    <td>PKR {{$deposit->amount}}</td>
+                                    <td>$ {{$deposit->amount}}</td>
                                     <td> @if($deposit->status=="Completed")
                                         <span class="badge badge-success">{{$deposit->status}}</span>
                                         @elseif($deposit->status=="Rejected")

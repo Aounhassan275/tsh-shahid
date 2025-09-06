@@ -70,7 +70,7 @@
 			<!-- Product details-->
 			<div class="col-lg-5 pt-4 pt-lg-0">
 			  <div class="product-details ms-auto pb-3">
-				<div class="h3 fw-normal text-accent mb-3 me-1">PKR {{$product->price}}</div>
+				<div class="h3 fw-normal text-accent mb-3 me-1">$ {{$product->price}}</div>
 				<!-- Product panels-->
 				
 				<div class="mb-3 d-flex align-items-center">

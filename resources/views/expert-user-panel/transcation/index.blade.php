@@ -8,7 +8,7 @@
         <div class="card widget_2 big_icon traffic">
             <div class="body">
                 <h6>Balance</h6>
-                <h2>{{Auth::user()->balance}} <small class="info"> PKR </small></h2>
+                <h2>{{Auth::user()->balance}} <small class="info"> $ </small></h2>
             </div>
         </div>
     </div>
@@ -16,7 +16,7 @@
         <div class="card widget_2 big_icon sales">
             <div class="body">
                 <h6>Shopping Wallet</h6>
-                <h2>{{Auth::user()->shopping_wallet}} <small class="info"> PKR </small></h2>
+                <h2>{{Auth::user()->shopping_wallet}} <small class="info"> $ </small></h2>
             </div>
         </div>
     </div>
@@ -24,7 +24,7 @@
         <div class="card widget_2 big_icon domains">
             <div class="body">
                 <h6>In Stock Balance</h6>
-                <h2>{{Auth::user()->instock_wallet}} <small class="info"> PKR </small></h2>
+                <h2>{{Auth::user()->instock_wallet}} <small class="info"> $ </small></h2>
             </div>
         </div>
     </div>

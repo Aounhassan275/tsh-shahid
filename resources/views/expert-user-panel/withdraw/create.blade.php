@@ -10,7 +10,7 @@ Create Withdraw
         <div class="card widget_2 big_icon traffic">
             <div class="body">
                 <h6>Balance</h6>
-                <h2>{{Auth::user()->balance}} <small class="info"> PKR </small></h2>
+                <h2>{{Auth::user()->balance}} <small class="info"> $ </small></h2>
             </div>
         </div>
     </div>
@@ -85,7 +85,7 @@ Create Withdraw
         <div class="card">
             <div class="body"> 
                 <p>
-                    Your Package Withdraw Limit is PKR {{Auth::user()->package->withdraw_limit}} and Your balance is PKR {{Auth::user()->balance}}.
+                    Your Package Withdraw Limit is $ {{Auth::user()->package->withdraw_limit}} and Your balance is $ {{Auth::user()->balance}}.
                 </p>
             </div>
         </div>

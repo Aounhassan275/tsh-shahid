@@ -100,7 +100,7 @@
                 <tr>
                     <td>{{$key+1}}</td>
                     <td>{{$level->level}}</td>
-                    <td>PKR {{$level->amount}}</td>
+                    <td>$ {{$level->amount}}</td>
                     <td>
                         <button data-toggle="modal" data-target="#edit_modal" level="{{$level->level}}" 
                             amount="{{$level->amount}}" id="{{$level->id}}" class="edit-btn btn btn-primary">Edit</button>

@@ -1,6 +1,6 @@
 @extends('expert-user-panel.layout.index')
 @section('title')
-Auto Pool For Package PKR 3000
+Auto Pool For Package $ 3000
 @endsection
 @section('content')
 <div id="user-tree"></div>

@@ -35,8 +35,8 @@
 					  <div class="card-body py-2"><a class="product-meta d-block fs-xs pb-1" href="{{route('brand.show',str_replace(' ', '_',$product->brand->name))}}">{{$product->brand->name}}</a>
 						<h3 class="product-title fs-sm"><a href="{{route('product.show',str_replace(' ', '_',$product->name))}}">{{$product->name}}</a></h3>
 						<div class="d-flex justify-content-between">
-							<div class="product-price"><span class="text-accent">PKR {{$product->price}}</span>
-								<del class="fs-sm text-muted">PKR {{$product->fake_price}}></del>
+							<div class="product-price"><span class="text-accent">$ {{$product->price}}</span>
+								<del class="fs-sm text-muted">$ {{$product->fake_price}}></del>
 							</div>
 						</div>
 					  </div>

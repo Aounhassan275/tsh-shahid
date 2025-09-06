@@ -9,7 +9,7 @@ Create Order on Product {{$product->name}}
     <div class="col-md-12 col-lg-4">
         <div class="card">
             <div class="body">
-                <h3 class="mt-0 mb-0">PKR {{Auth::user()->balance}}</h3>
+                <h3 class="mt-0 mb-0">$ {{Auth::user()->balance}}</h3>
                 <p class="text-muted">User Balance</p>
                 <div class="progress">
                     <div class="progress-bar l-pink" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
@@ -20,7 +20,7 @@ Create Order on Product {{$product->name}}
     <div class="col-md-12 col-lg-4">
         <div class="card">
             <div class="body">
-                <h3 class="mt-0 mb-0">PKR {{Auth::user()->amount_for_shop}}</h3>
+                <h3 class="mt-0 mb-0">$ {{Auth::user()->amount_for_shop}}</h3>
                 <p class="text-muted">Amount For Shopping</p>
                 <div class="progress">
                     <div class="progress-bar l-green" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
@@ -31,7 +31,7 @@ Create Order on Product {{$product->name}}
     <div class="col-md-12 col-lg-4">
         <div class="card">
             <div class="body">
-                <h3 class="mt-0 mb-0">PKR {{Auth::user()->instock_wallet}}</h3>
+                <h3 class="mt-0 mb-0">$ {{Auth::user()->instock_wallet}}</h3>
                 <p class="text-muted">In-stock Wallet</p>
                 <div class="progress">
                     <div class="progress-bar l-yellow" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>

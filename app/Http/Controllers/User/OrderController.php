@@ -198,7 +198,7 @@ class OrderController extends Controller
                     'success' => true,
                     'discount_amount' => $discountAmount,
                     'new_price' => $newPrice,
-                    'message' => 'Coupon applied. You saved PKR '.$discountAmount,
+                    'message' => 'Coupon applied. You saved $ '.$discountAmount,
                 ];
             }else{
                 return [

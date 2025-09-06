@@ -15,7 +15,7 @@ Products
 					<a href="{{route('user.product.show',str_replace(' ', '_',$product->name))}}">{{@$product->name}}</a>
 					<ul class="product_price list-unstyled">
 						{{-- <li class="old_price">$16.00</li> --}}
-						<li class="new_price">PKR {{$product->price}}</li>
+						<li class="new_price">$ {{$product->price}}</li>
 					</ul>                                
 				</div>
 				<div class="action">

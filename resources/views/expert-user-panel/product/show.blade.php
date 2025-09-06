@@ -27,7 +27,7 @@
 					<div class="col-xl-9 col-lg-8 col-md-12">
 						<div class="product details">
 							<h3 class="product-title mb-0">{{$product->name}}</h3>
-							<h5 class="price mt-0">Current Price: <span class="col-amber">PKR {{$product->price}}</span></h5>
+							<h5 class="price mt-0">Current Price: <span class="col-amber">$ {{$product->price}}</span></h5>
 							<hr>
 							<p class="product-description">{!! @$product->description !!}</p>
 							<p class="vote"><strong>Category :</strong> {{@$product->category->name}}</p>

@@ -59,7 +59,7 @@ Orders
                                 <td ></td>
                                 <td ></td>
                                 <td >Total Orders Amount:</td>
-                                <td >PKR {{$orders->sum('price') }}</td>
+                                <td >$ {{$orders->sum('price') }}</td>
                             </tr>
                         </tfoot>
                         <tbody>
@@ -72,9 +72,9 @@ Orders
                                     <td >{{$order->address}}</td>
                                     <td >{{$order->status}} @if($order->order_type == 5) (In-Stocked) @endif</td>
                                     <td >{{$order->created_at->format('M d,Y h:i A')}}</td>
-                                    <td >PKR {{$order->delivery_cost}}</td>
-                                    <td >PKR {{$order->discount_amount}}</td>
-                                    <td >PKR {{$order->price}}</td>
+                                    <td >$ {{$order->delivery_cost}}</td>
+                                    <td >$ {{$order->discount_amount}}</td>
+                                    <td >$ {{$order->price}}</td>
                     
                                 </tr>
                             @endforeach

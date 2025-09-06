@@ -64,7 +64,7 @@
 			<div class="col-lg-4 col-md-7 sidebar pt-5 pt-lg-0">
 				<!-- widget -->
 				<div class="widget-item">
-					<h3>PKR @if($product->fake_price > 0)<del>{{$product->fake_price}} /</del> @endif{{$product->price}}</h3>
+					<h3>$ @if($product->fake_price > 0)<del>{{$product->fake_price}} /</del> @endif{{$product->price}}</h3>
 					<a href="{{route('user.product.order',$product->id)}}" class="btn btn-primary btn-shadow d-block w-100">
 						<i class="ci-cart fs-lg me-2"></i>Add to Cart
 					</a>

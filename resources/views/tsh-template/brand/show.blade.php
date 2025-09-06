@@ -42,7 +42,7 @@
 			<span class="cata new">{{$product->category->name}}</span>
 			<div class="fi-content text-white">
 			  <h5><a href="{{route('product.show',str_replace(' ', '_',$product->name))}}">{{$product->name}}</a></h5>
-			  <p>PKR {{$product->price}} </p>
+			  <p>$ {{$product->price}} </p>
 			  <a href="{{route('brand.show',str_replace(' ', '_',$product->brand->name))}}" class="fi-comment">{{$product->brand->name}}</a>
 			</div>
 		  </div>

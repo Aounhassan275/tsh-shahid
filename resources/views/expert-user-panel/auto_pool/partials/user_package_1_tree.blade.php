@@ -4,7 +4,7 @@
         <div class="card w_data_1">
            <div class="body">
                 <div class="w_icon indigo"><i class="zmdi zmdi-account-o"></i></div>
-                <h4 class="mt-3">PKR {{$user->balance}}</h4>
+                <h4 class="mt-3">$ {{$user->balance}}</h4>
                 <span class="text-muted">{{$user->name}}</span>
            </div>
         </div>
@@ -16,7 +16,7 @@
         <div class="card w_data_1">
            <div class="body">
                 <div class="w_icon orange"><i class="zmdi zmdi-account"></i></div>
-                <h4 class="mt-3">PKR {{@$left->balance}}</h4>
+                <h4 class="mt-3">$ {{@$left->balance}}</h4>
                 <a href="#" style="color:orange;" onclick="getTree('{{@$left->id}}')" > 
                     <strong>{{@$left->name}}</strong>
                 </a>
@@ -29,7 +29,7 @@
         <div class="card w_data_1">
            <div class="body">
                 <div class="w_icon green"><i class="zmdi zmdi-account-circle"></i></div>
-                <h4 class="mt-3">PKR {{@$right->balance}}</h4>
+                <h4 class="mt-3">$ {{@$right->balance}}</h4>
                 <a href="#" style="color:green;" onclick="getTree('{{@$right->id}}')" > 
                     <strong>{{@$right->name}}</strong>
                 </a>

@@ -21,7 +21,7 @@ Dashboard
         <div class="card widget_2 big_icon traffic">
             <div class="body">
                 <h6>Balance</h6>
-                <h2>{{Auth::user()->balance}} <small class="info"> PKR </small></h2>
+                <h2>{{Auth::user()->balance}} <small class="info"> $ </small></h2>
             </div>
         </div>
     </div>
@@ -29,7 +29,7 @@ Dashboard
         <div class="card widget_2 big_icon sales">
             <div class="body">
                 <h6>Direct Earning</h6>
-                <h2>{{Auth::user()->earnings()->where('type','direct_income')->sum('price') + Auth::user()->earnings()->where('type','direct_income')->sum('temp_price')}} <small class="info">PKR</small></h2>
+                <h2>{{Auth::user()->earnings()->where('type','direct_income')->sum('price') + Auth::user()->earnings()->where('type','direct_income')->sum('temp_price')}} <small class="info">$ </small></h2>
             </div>
         </div>
     </div>
@@ -37,7 +37,7 @@ Dashboard
         <div class="card widget_2 big_icon domains">
             <div class="body">
                 <h6>Indirect Earning</h6>
-                <h2>{{Auth::user()->earnings()->where('type','indirect_income')->sum('price')}} <small class="info">PKR</small></h2>
+                <h2>{{Auth::user()->earnings()->where('type','indirect_income')->sum('price')}} <small class="info">$ </small></h2>
             </div>
         </div>
     </div>
@@ -53,7 +53,7 @@ Dashboard
         <div class="card widget_2 big_icon ">
             <div class="body">
                 <h6>Shopping Wallet</h6>
-                <h2>{{Auth::user()->shopping_wallet}} <small class="info">PKR</small></h2>
+                <h2>{{Auth::user()->shopping_wallet}} <small class="info">$ </small></h2>
             </div>
         </div>
     </div>
@@ -61,7 +61,7 @@ Dashboard
         <div class="card widget_2 big_icon ">
             <div class="body">
                 <h6>Amount of Shop</h6>
-                <h2>{{Auth::user()->amount_for_shop}} <small class="info">PKR</small></h2>
+                <h2>{{Auth::user()->amount_for_shop}} <small class="info">$ </small></h2>
             </div>
         </div>
     </div>
@@ -69,7 +69,7 @@ Dashboard
         <div class="card widget_2 big_icon ">
             <div class="body">
                 <h6>Total Shopping</h6>
-                <h2>{{Auth::user()->orders->sum('price')}} <small class="info">PKR</small></h2>
+                <h2>{{Auth::user()->orders->sum('price')}} <small class="info">$ </small></h2>
             </div>
         </div>
     </div>
@@ -77,7 +77,7 @@ Dashboard
         <div class="card widget_2 big_icon ">
             <div class="body">
                 <h6>Shopping Reward</h6>
-                <h2>{{Auth::user()->earnings()->where('type','personal_reward')->sum('price')}} <small class="info">PKR</small></h2>
+                <h2>{{Auth::user()->earnings()->where('type','personal_reward')->sum('price')}} <small class="info">$ </small></h2>
             </div>
         </div>
     </div>
@@ -109,7 +109,7 @@ Dashboard
         <div class="card state_w1">
             <div class="body d-flex justify-content-between">
                 <div>
-                    <h5>PKR {{Auth::user()->earnings()->where('type','monthly_team_profit')->sum('price')}}</h5>
+                    <h5>$ {{Auth::user()->earnings()->where('type','monthly_team_profit')->sum('price')}}</h5>
                     <span><i class="zmdi zmdi-comment-text col-red"></i> Monthly Team Profit</span>
                 </div>
                 <div class="sparkline" data-type="bar" data-width="97%" data-height="55px" data-bar-Width="3" data-bar-Spacing="5" data-bar-Color="#ee2558">4,4,3,9,2,1,5,7</div>
@@ -146,7 +146,7 @@ Dashboard
     <div class="col-md-12 col-lg-3">
         <div class="card">
             <div class="body">
-                <h3 class="mt-0 mb-0">PKR {{Auth::user()->orders->where('order_type',5)->whereIn('status',['In Process','on Hold'])->sum('price')}}</h3>
+                <h3 class="mt-0 mb-0">$ {{Auth::user()->orders->where('order_type',5)->whereIn('status',['In Process','on Hold'])->sum('price')}}</h3>
                 <p class="text-muted">Total In-Stock Orders</p>
                 <div class="progress">
                     <div class="progress-bar l-cyan" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
@@ -157,7 +157,7 @@ Dashboard
     <div class="col-md-12 col-lg-3">
         <div class="card">
             <div class="body">
-                <h3 class="mt-0 mb-0">PKR {{Auth::user()->orders->sum('price')}}</h3>
+                <h3 class="mt-0 mb-0">$ {{Auth::user()->orders->sum('price')}}</h3>
                 <p class="text-muted">Total Order Price</p>
                 <div class="progress">
                     <div class="progress-bar l-blush" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
@@ -168,7 +168,7 @@ Dashboard
     <div class="col-md-12 col-lg-3">
         <div class="card">
             <div class="body">
-                <h3 class="mt-0 mb-0">PKR {{Auth::user()->couponSales()}}</h3>
+                <h3 class="mt-0 mb-0">$ {{Auth::user()->couponSales()}}</h3>
                 <p class="text-muted">Coupon Sales</p>
                 <div class="progress">
                     <div class="progress-bar l-blue" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
@@ -183,7 +183,7 @@ Dashboard
     <div class="col-md-12 col-lg-3">
         <div class="card">
             <div class="body">
-                <h3 class="mt-0 mb-0">PKR 0</h3>
+                <h3 class="mt-0 mb-0">$ 0</h3>
                 <p class="text-muted">Total Installement</p>
                 <div class="progress">
                     <div class="progress-bar l-amber" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
@@ -195,7 +195,7 @@ Dashboard
     <div class="col-md-12 col-lg-3">
         <div class="card">
             <div class="body">
-                <h3 class="mt-0 mb-0">PKR 0</h3>
+                <h3 class="mt-0 mb-0">$ 0</h3>
                 <p class="text-muted">Total Paid Installement</p>
                 <div class="progress">
                     <div class="progress-bar l-pink" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
@@ -206,7 +206,7 @@ Dashboard
     <div class="col-md-12 col-lg-3">
         <div class="card">
             <div class="body">
-                <h3 class="mt-0 mb-0">PKR 0</h3>
+                <h3 class="mt-0 mb-0">$ 0</h3>
                 <p class="text-muted">Total Pending Installement</p>
                 <div class="progress">
                     <div class="progress-bar l-green" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>

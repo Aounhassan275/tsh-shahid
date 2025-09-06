@@ -44,8 +44,8 @@
 			</div>
 			<div class="review-text">
 			  <h5><a href="{{route('product.show',str_replace(' ', '_',$product->name))}}">{{$product->name}}</a></h5>
-			  <h5>PKR {{$product->price}}</h5> 
-			  <p><del>PKR {{$product->fake_price}}</del></p>
+			  <h5>$ {{$product->price}}</h5> 
+			  <p><del>$ {{$product->fake_price}}</del></p>
 			</div>
 		  </div>
 		</div>
